@@ -10,16 +10,18 @@ function App() {
 	const [converted, setConverted] = useState("");
 	const [CountryAndCurrency, setCountryAndCurrency] = useState([]);
 
+	const APIKey = "IawQ04OgCcARZp3eFIur2XprdwtJkw4C";
+
+	const myHeaders = new Headers();
+	myHeaders.append("apikey", APIKey);
+
+	const requestOptions = {
+		method: "GET",
+		redirect: "follow",
+		headers: myHeaders,
+	};
+
 	const FetchCurrency = () => {
-		var myHeaders = new Headers();
-		myHeaders.append("apikey", "IawQ04OgCcARZp3eFIur2XprdwtJkw4C");
-
-		var requestOptions = {
-			method: "GET",
-			redirect: "follow",
-			headers: myHeaders,
-		};
-
 		fetch("https://api.apilayer.com/exchangerates_data/symbols", requestOptions)
 			.then((response) => response.json())
 			.then((data) => {
@@ -31,20 +33,7 @@ function App() {
 			.catch((error) => console.log("error", error));
 	};
 
-	const Convert2 = () => {
-		console.log({ currencyOption, amount });
-	};
-
-	const Convert = (e) => {
-		var myHeaders = new Headers();
-		myHeaders.append("apikey", "IawQ04OgCcARZp3eFIur2XprdwtJkw4C");
-
-		var requestOptions = {
-			method: "GET",
-			redirect: "follow",
-			headers: myHeaders,
-		};
-
+	const ConvertFunction = () => {
 		fetch(
 			`https://api.apilayer.com/exchangerates_data/convert?to=${currencyOption}&from=NGN&amount=2`,
 			requestOptions
@@ -56,7 +45,7 @@ function App() {
 
 	useEffect(() => {
 		FetchCurrency();
-		// Convert();
+		ConvertFunction();
 		// ListSymbols();
 	}, [currencyOption]);
 
