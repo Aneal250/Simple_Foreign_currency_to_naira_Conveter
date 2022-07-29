@@ -8,9 +8,8 @@ function App() {
 	const [currencyOption, setCurrencyOption] = useState("");
 	const [amount, setAmount] = useState("");
 	const [converted, setConverted] = useState("");
-	const [CountryAndCurrency, setCountryAndCurrency] = useState([]);
 
-	const APIKey = "IawQ04OgCcARZp3eFIur2XprdwtJkw4C";
+	const APIKey = "mMSdsbNUpgyYHnrcKmS31ptN7ZDkTZrX";
 
 	const myHeaders = new Headers();
 	myHeaders.append("apikey", APIKey);
@@ -25,7 +24,6 @@ function App() {
 		fetch("https://api.apilayer.com/exchangerates_data/symbols", requestOptions)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
 				for (let keys in data.symbols) {
 					setCurrency((symbols) => [...symbols, keys]);
 				}
@@ -35,7 +33,7 @@ function App() {
 
 	const ConvertFunction = () => {
 		fetch(
-			`https://api.apilayer.com/exchangerates_data/convert?to=${currencyOption}&from=NGN&amount=2`,
+			`https://api.apilayer.com/exchangerates_data/convert?to=NGN&from=${currencyOption}&amount=${amount}`,
 			requestOptions
 		)
 			.then((response) => response.json())
@@ -45,22 +43,26 @@ function App() {
 
 	useEffect(() => {
 		FetchCurrency();
-		ConvertFunction();
-		// ListSymbols();
+		if (currencyOption) {
+			ConvertFunction();
+		}
 	}, [currencyOption]);
 
 	return (
-		<div className="App">
-			<CurrencyConverter
-				currencyList={currencyList}
-				setCurrency={setCurrency}
-				amount={amount}
-				setAmount={setAmount}
-				currencyOption={currencyOption}
-				setCurrencyOption={setCurrencyOption}
-			/>
-			<Convertered converted={converted} />
-		</div>
+		<>
+			<div className="title"> Currency Converter {`(Naira)`}</div>
+			<section className="container">
+				<CurrencyConverter
+					currencyList={currencyList}
+					setCurrency={setCurrency}
+					amount={amount}
+					setAmount={setAmount}
+					currencyOption={currencyOption}
+					setCurrencyOption={setCurrencyOption}
+				/>
+				<Convertered converted={converted} />
+			</section>
+		</>
 	);
 }
 
