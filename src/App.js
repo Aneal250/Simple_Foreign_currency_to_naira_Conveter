@@ -9,7 +9,7 @@ function App() {
 	const [amount, setAmount] = useState("");
 	const [converted, setConverted] = useState("");
 
-	const APIKey = "mMSdsbNUpgyYHnrcKmS31ptN7ZDkTZrX";
+	const APIKey = "Enter you API key here";
 
 	const myHeaders = new Headers();
 	myHeaders.append("apikey", APIKey);
