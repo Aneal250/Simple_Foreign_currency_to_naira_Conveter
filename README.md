@@ -19,4 +19,6 @@ This is a Simple application that converts any currency to a Naira
 - API Endpoint Exchange Rate API [`ExchangeRate.io`](https://apilayer.com/marketplace/exchangerates_data-api)
 
 ### Contributions
+
     - Free to Fork the repo and add your own contributions
+    - Project Developed for PWC Fullstack Students Cohort 27 | 07 | 2022
