@@ -1,4 +1,4 @@
-## About
+## ## PWC Cohort Tutorials for PWC Website July 2022.
 
 This is a Simple application that converts any currency to a Naira
 
@@ -19,6 +19,7 @@ This is a Simple application that converts any currency to a Naira
 - API Endpoint Exchange Rate API [`ExchangeRate.io`](https://apilayer.com/marketplace/exchangerates_data-api)
 
 ### Contributions
+### Contributions
 
-    - Free to Fork the repo and add your own contributions
-    - Project Developed for PWC Fullstack Students Cohort 27 | 07 | 2022
+    - Feel Free to Fork the repo and add your own contributions
+    - This project serves as a demonstration for the PWC Fullstack Students Cohort 31 | 07 | 2022
